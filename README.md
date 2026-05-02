@@ -353,15 +353,19 @@ Designed in KiCad by **Nikhil Misal**. Gerber files and full design notes are in
 
 ### System
 
-![Blueberry Voice Assistant - Front View](demo/images/system-front-view.jpeg)
+<img src="demo/images/system-front-view.jpeg" width="400"/>
 
 ### PCB Shield (Back View)
 
-![Custom Pi Shield - Back View](demo/images/pcb-back-view.jpeg)
+<img src="demo/images/pcb-back-view.jpeg" width="400"/>
 
 ### Video Demo
 
-[![Blueberry Voice Assistant Demo](demo/images/system-front-view.jpeg)](https://youtu.be/ck8D_fbSyfE?si=1WoNeZFP7AxhFfde)
+<a href="https://youtu.be/ck8D_fbSyfE?si=1WoNeZFP7AxhFfde">
+  <img src="demo/images/system-front-view.jpeg" width="400"/>
+</a>
+
+> Click the image above to watch the demo video.
 
 ---
 
