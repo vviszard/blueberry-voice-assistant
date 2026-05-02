@@ -20,7 +20,7 @@ IoT Centre of Excellence, SISTec
 - [API Keys](#api-keys)
 - [Configuration](#configuration)
 - [Usage](#usage)
-- [Running as a Service (Auto-start on Boot)](#running-as-a-service-auto-start-on-boot)
+- [Running as a Service](#running-as-a-service-auto-start-on-boot)
 - [Extensibility](#extensibility)
 - [PCB Design](#pcb-design)
 - [Demo](#demo)
