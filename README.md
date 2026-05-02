@@ -20,6 +20,7 @@ IoT Centre of Excellence, SISTec
 - [API Keys](#api-keys)
 - [Configuration](#configuration)
 - [Usage](#usage)
+- [Running as a Service (Auto-start on Boot)](#running-as-a-service-auto-start-on-boot)
 - [Extensibility](#extensibility)
 - [PCB Design](#pcb-design)
 - [Demo](#demo)
@@ -266,6 +267,63 @@ Once running:
 
 ---
 
+## Running as a Service (Auto-start on Boot)
+
+Blueberry is designed to run as a `systemd` service so it starts automatically every time the Raspberry Pi powers on — no terminal, no manual intervention, just plug in and it's live.
+
+### 1. Create the service file
+
+```bash
+sudo nano /etc/systemd/system/gyan_bot.service
+```
+
+### 2. Paste this configuration
+
+```ini
+[Unit]
+Description=Gyan Bot Voice Assistant
+After=network.target sound.target pulseaudio.service
+
+[Service]
+Type=simple
+User=iot-coe-2025
+Group=iot-coe-2025
+WorkingDirectory=/home/iot-coe-2025
+ExecStart=/home/iot-coe-2025/my_voice/bin/python /home/iot-coe-2025/final_bot/pico_gyan_led.py
+Restart=always
+RestartSec=5
+
+# Required fix for PulseAudio permission errors:
+Environment="XDG_RUNTIME_DIR=/run/user/1000"
+Environment="PULSE_RUNTIME_PATH=/run/user/1000/pulse"
+
+[Install]
+WantedBy=multi-user.target
+```
+
+> **Note:** Update `User`, `Group`, `WorkingDirectory`, and `ExecStart` paths to match your own username and virtual environment if they differ from the ones above.
+
+The two `Environment` lines are a required fix — without them, the service crashes on boot because it cannot access the PulseAudio socket before the user session is fully initialized.
+
+### 3. Enable and start the service
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable gyan_bot.service
+sudo systemctl start gyan_bot.service
+```
+
+### Useful commands
+
+| Command | Purpose |
+|---|---|
+| `sudo systemctl status gyan_bot.service` | Check if the service is running |
+| `sudo systemctl stop gyan_bot.service` | Stop the assistant |
+| `sudo systemctl disable gyan_bot.service` | Disable auto-start (useful during development) |
+| `journalctl -u gyan_bot.service -f` | Live logs for debugging |
+
+---
+
 ## Extensibility
 
 The UART-based command bridge makes Blueberry straightforward to extend beyond a standalone assistant. Any microcontroller that accepts serial commands can be integrated. As a demonstration of this, the assistant is connected to an ESP32-controlled servo robot — spoken commands like *"dance"*, *"walk"*, or *"salute"* are intercepted before reaching the AI and routed directly to the robot over UART.
@@ -293,7 +351,17 @@ Designed in KiCad by **Nikhil Misal**. Gerber files and full design notes are in
 
 ## Demo
 
-Photos and video demos are available in the `demo/` folder.
+### System
+
+![Blueberry Voice Assistant - Front View](demo/images/system-front-view.jpeg)
+
+### PCB Shield (Back View)
+
+![Custom Pi Shield - Back View](demo/images/pcb-back-view.jpeg)
+
+### Video Demo
+
+[![Blueberry Voice Assistant Demo](demo/images/system-front-view.jpeg)](https://youtu.be/ck8D_fbSyfE?si=1WoNeZFP7AxhFfde)
 
 ---
 
