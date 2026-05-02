@@ -357,8 +357,8 @@ Designed in KiCad by **Nikhil Misal**. Gerber files and full design notes are in
     <td align="center"><b>PCB Shield (Back View)</b></td>
   </tr>
   <tr>
-    <td><img src="demo/images/system-front-view.jpeg" width="350"/></td>
-    <td><img src="demo/images/pcb-back-view.jpeg" width="350"/></td>
+    <td><img src="demo/images/system-front-view.jpeg" width="300"/></td>
+    <td><img src="demo/images/pcb-back-view.jpeg" width="300"/></td>
   </tr>
 </table>
 
