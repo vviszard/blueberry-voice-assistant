@@ -351,13 +351,16 @@ Designed in KiCad by **Nikhil Misal**. Gerber files and full design notes are in
 
 ## Demo
 
-### System
-
-<img src="demo/images/system-front-view.jpeg" width="400"/>
-
-### PCB Shield (Back View)
-
-<img src="demo/images/pcb-back-view.jpeg" width="400"/>
+<table>
+  <tr>
+    <td align="center"><b>System</b></td>
+    <td align="center"><b>PCB Shield (Back View)</b></td>
+  </tr>
+  <tr>
+    <td><img src="demo/images/system-front-view.jpeg" width="350"/></td>
+    <td><img src="demo/images/pcb-back-view.jpeg" width="350"/></td>
+  </tr>
+</table>
 
 ### Video Demo
 
