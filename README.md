@@ -365,7 +365,7 @@ Designed in KiCad by **Nikhil Misal**. Gerber files and full design notes are in
 ### Video Demo
 
 <a href="https://youtu.be/ck8D_fbSyfE?si=1WoNeZFP7AxhFfde">
-  <img src="demo/images/system-front-view.jpeg" width="400"/>
+  <img src="demo/images/system-front-view.jpeg" width="200"/>
 </a>
 
 > Click the image above to watch the demo video.
